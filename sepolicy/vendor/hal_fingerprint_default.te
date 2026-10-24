@@ -9,3 +9,10 @@ allow hal_fingerprint_default sysfs_pmu:file r_file_perms;
 
 get_prop(hal_fingerprint_default, vendor_fingerprint_prop)
 set_prop(hal_fingerprint_default, vendor_fingerprint_prop)
+
+# Trusty TEE device info
+allow hal_fingerprint_default mtee_trusty_file:dir search;
+allow hal_fingerprint_default mtee_trusty_file:file r_file_perms;
+
+# The blob writes persist.sys.fp.info, a platform property it may not set
+dontaudit hal_fingerprint_default system_prop:property_service set;

@@ -1,5 +1,7 @@
 # Audio
-genfscon sysfs /devices/platform/11f00000.i2c6/i2c-6/6-0058                              u:object_r:mtk_audiohal_data_file:s0
+genfscon sysfs /devices/platform/11f00000.i2c6/i2c-6/6-0058/actflag                      u:object_r:sysfs_audio_pa:s0
+genfscon sysfs /devices/platform/11f00000.i2c6/i2c-6/6-0058/vmax                         u:object_r:sysfs_audio_pa:s0
+genfscon sysfs /devices/virtual/huaqin/interface/hw_info                                 u:object_r:sysfs_huaqin_hwinfo:s0
 
 # Fingerprint
 genfscon sysfs /devices/platform/fingerprint                                             u:object_r:vendor_fingerprint_data_file:s0
@@ -9,3 +11,6 @@ genfscon sysfs /devices/platform/11e01000.i2c5/i2c-5/5-004e/tcpc/type_c_port0/wa
 genfscon sysfs /devices/platform/11e01000.i2c5/i2c-5/5-004e/wakeup                       u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/11e02000.i2c7/i2c-7/7-0008/wakeup                       u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/virtual/input/input2/wakeup                                      u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/fingerprint/wakeup                                      u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/battery/power_supply/bms/wakeup                         u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/fingerprint/wakeup_enable                               u:object_r:vendor_fingerprint_data_file:s0
