@@ -11,3 +11,15 @@ persist.dbg.wfc_avail_ovr=1
 
 # Zygote
 zygote.critical_window.minute=10
+
+# FM radio (libfmjni reads its config from these)
+ro.fm.chip=26161
+ro.fm.band=1
+ro.fm.low_band=875
+ro.fm.high_band=1080
+ro.fm.seek_space=1
+ro.fm.max_scan_num=40
+ro.fm.seek_lev=4
+ro.fm.scan_sort=0
+ro.fm.short_ana_sup=1
+ro.fm.rssi_th_l2=-102
