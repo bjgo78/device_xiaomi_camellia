@@ -1,0 +1,12 @@
+diff --git a/fsgen/prebuilt_etc_modules_gen.go b/fsgen/prebuilt_etc_modules_gen.go
+index e4bb07cd3..97bc616ac 100644
+--- a/fsgen/prebuilt_etc_modules_gen.go
++++ b/fsgen/prebuilt_etc_modules_gen.go
+@@ -202,7 +202,6 @@ var (
+ 		"first_stage_ramdisk": etc.PrebuiltFirstStageRamdiskFactory,
+ 		"fonts":               etc.PrebuiltFontFactory,
+ 		"framework":           etc.PrebuiltFrameworkFactory,
+-		"lib":                 etc.PrebuiltRenderScriptBitcodeFactory,
+ 		"lib64":               etc.PrebuiltRenderScriptBitcodeFactory,
+ 		"lib/rfsa":            etc.PrebuiltRFSAFactory,
+ 		"media":               etc.PrebuiltMediaFactory,

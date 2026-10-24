@@ -1,0 +1,12 @@
+diff --git a/aidl/Android.bp b/aidl/Android.bp
+index 7cc07a0..e546ce0 100644
+--- a/aidl/Android.bp
++++ b/aidl/Android.bp
+@@ -37,7 +37,6 @@ cc_binary {
+     defaults: ["android.hardware.nfc-service.st_default"],
+     relative_install_path: "hw",
+     init_rc: ["nfc-service-default.rc"],
+-    vintf_fragments: ["nfc-service-default.xml"],
+     vendor: true,
+     cflags: [
+         "-Wall",
