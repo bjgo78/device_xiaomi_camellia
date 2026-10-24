@@ -1081,7 +1081,6 @@ vendor/lib64/libgoodixhwfingerprint.so
 vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so
 
 # FM
--system_ext/lib64/libfmjni.so:system/lib64/libfmjni.so
 vendor/etc/init/init.fmradio_drv.rc
 vendor/firmware/fm_cust.cfg
 vendor/firmware/mt6631_fm_v1_coeff.bin
@@ -1331,7 +1330,6 @@ vendor/lib64/vendor.mediatek.hardware.mtkradioex@3.0.so
 
 # Radio (Engineer Mode) - from plato-user 14 UP1A.230620.001 V14.0.7.0.ULQMIXM release-keys
 system_ext/app/EngineerMode/EngineerMode.apk|e34588606d108ea5aa154f55460fd46c8bbd677c
-system_ext/lib/libem_support_jni.so|d7749442151059cd6136ca1ddb22c510e744bdc0
 system_ext/lib64/libem_support_jni.so|b7d3b3bfa079b6bca9acb0a7c054a7a234d92818
 vendor/bin/em_hidl|973b6f8728f4f6f74250fe83fbfde4f7bffc216f
 vendor/etc/init/em_hidl_user.rc|bdb5893df3e78d2d2adaf72bc7e56dfeee0be308

@@ -27,6 +27,5 @@ PRODUCT_MODEL := Redmi Note 10 5G
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="camellia-user 13 TP1A.220624.014 V14.0.6.0.TKTMIXM release-keys"
-
-BUILD_FINGERPRINT := Redmi/camellia/camellia:12/SP1A.210812.016/V14.0.6.0.TKTMIXM:user/release-keys
+    BuildDesc="camellia-user 13 TP1A.220624.014 V14.0.6.0.TKTMIXM release-keys" \
+    BuildFingerprint=Redmi/camellia/camellia:12/SP1A.210812.016/V14.0.6.0.TKTMIXM:user/release-keys

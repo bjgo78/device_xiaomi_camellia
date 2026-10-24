@@ -17,7 +17,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
 PRODUCT_PACKAGES += \
-    android.hardware.boot-service.default \
+    com.android.hardware.boot \
     android.hardware.boot-service.default_recovery
 
 AB_OTA_POSTINSTALL_CONFIG += \
@@ -175,7 +175,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light-service.xiaomi
+    android.hardware.light-service.lineage
 
 # Media
 PRODUCT_PACKAGES += \
@@ -197,7 +197,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.nfc-service.st \
     com.android.nfc_extras \
-    NfcNci \
     Tag
 
 PRODUCT_COPY_FILES += \
@@ -385,3 +384,28 @@ PRODUCT_COPY_FILES += \
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/camellia/camellia-vendor.mk)
+
+# Libraries the vendor blobs need, formerly provided by the VNDK
+PRODUCT_PACKAGES += \
+    android.hardware.audio@6.0.vendor \
+    android.hardware.audio.common@6.0.vendor \
+    android.hardware.audio.common@6.0-util.vendor \
+    android.hardware.memtrack-V1-ndk.vendor \
+    libcamera_metadata.vendor \
+    libcurl.vendor \
+    libexif.vendor \
+    libnetutils.vendor \
+    libpng.vendor \
+    libselinux.vendor \
+    libunwindstack.vendor \
+    libutilscallstack.vendor \
+    libexpat.vendor
+
+# Shims
+PRODUCT_PACKAGES += \
+    libbase_shim \
+    libui_shim
+
+# Wi-Fi: wrap the stock MediaTek HAL for the current function table
+PRODUCT_PACKAGES += \
+    libwifi-hal-wrapper
