@@ -79,6 +79,9 @@ BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 TARGET_KERNEL_SOURCE := kernel/xiaomi/camellia
 TARGET_KERNEL_CONFIG := camellia_stock_defconfig
 TARGET_KERNEL_CLANG_VERSION := r383902
+ifeq ($(wildcard prebuilts/clang/host/linux-x86/clang-$(TARGET_KERNEL_CLANG_VERSION)/bin/clang),)
+$(error clang-$(TARGET_KERNEL_CLANG_VERSION) is missing, run: bash $(DEVICE_PATH)/setup-toolchain.sh)
+endif
 TARGET_KERNEL_ADDITIONAL_FLAGS := NM=llvm-nm OBJCOPY=llvm-objcopy TARGET_PRODUCT=camellian
 
 # NFC
