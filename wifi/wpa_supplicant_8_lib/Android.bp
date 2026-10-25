@@ -1,0 +1,23 @@
+//
+// SPDX-FileCopyrightText: 2026 bjgo78
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_static {
+    name: "lib_driver_cmd_mt66xx",
+    soc_specific: true,
+    srcs: ["mediatek_driver_cmd_nl80211.c"],
+    cflags: [
+        "-DCONFIG_ANDROID_LOG",
+        "-DANDROID_P2P",
+        "-Wall",
+        "-Werror",
+        "-Wno-unused-parameter",
+    ],
+    header_libs: ["wpa_supplicant_headers"],
+    shared_libs: [
+        "libc",
+        "libcutils",
+        "libnl",
+    ],
+}
