@@ -53,6 +53,12 @@ if [ -z "${SRC}" ]; then
     SRC="adb"
 fi
 
+# patchelf --add-needed does not check for an existing entry
+function add_needed_once {
+    "${PATCHELF_0_18}" --print-needed "${2}" | grep -qxF "${1}" ||
+        "${PATCHELF_0_18}" --add-needed "${1}" "${2}"
+}
+
 function blob_fixup {
     case "$1" in
 	system_ext/lib64/libsink.so)
@@ -90,6 +96,20 @@ function blob_fixup {
 	vendor/lib*/libaalservice.so | \
 	vendor/lib64/libcam.utils.sensorprovider.so)
             "${PATCHELF}" --add-needed "libshim_sensors.so" "${2}"
+            ;;
+        vendor/lib*/libnvram.so | \
+        vendor/lib64/libsysenv.so | \
+        vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-mtk-neuron)
+            add_needed_once libbase_shim.so "${2}"
+            ;;
+        vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so)
+            "${PATCHELF_0_18}" --replace-needed libutils.so libutils-v32.so "${2}"
+            ;;
+        vendor/bin/hw/mtkfusionrild)
+            add_needed_once libutils-v32.so "${2}"
+            ;;
+        system_ext/lib64/libsource.so)
+            add_needed_once libui_shim.so "${2}"
             ;;
     esac
 }
