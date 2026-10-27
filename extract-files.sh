@@ -69,6 +69,8 @@ function blob_fixup {
             ;;
 	vendor/bin/hw/vendor.mediatek.hardware.mtkpower@1.0-service)
             "$PATCHELF" --replace-needed "android.hardware.power-V2-ndk_platform.so" "android.hardware.power-V2-ndk.so" "$2"
+            # Allocate 256 bytes instead of 80 for the AIDL Power object (Lineage Power class is larger)
+            python3 -c "import sys; p=sys.argv[1]; d=bytearray(open(p,'rb').read()); o=bytes.fromhex('000a8052'); n=bytes.fromhex('00208052'); assert d.count(o)<=1; d=d.replace(o,n); open(p,'wb').write(d)" "$2"
             ;;
 	vendor/bin/hw/android.hardware.gnss-service.mediatek | \
         vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so)
