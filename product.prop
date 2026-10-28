@@ -1,0 +1,4 @@
+# BPF
+# NetBpfLoad in Android 16 refuses kernels older than 5.4. The kernel
+# carries the BPF backports the 5.4 programs need.
+ro.bpf.kver_override=5.4.186
