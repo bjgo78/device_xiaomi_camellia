@@ -346,7 +346,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors@2.1-service.camellia-multihal \
     android.frameworks.sensorservice@1.0.vendor \
-    libsensorndkbridge \
     libshim_sensors
 
 PRODUCT_COPY_FILES += \
@@ -411,6 +410,10 @@ PRODUCT_PACKAGES += \
     libunwindstack.vendor \
     libutilscallstack.vendor \
     libexpat.vendor
+
+# Libraries the vendor blobs need, changed in Android 16
+PRODUCT_PACKAGES += \
+    libtinyxml2-v34
 
 # Shims
 PRODUCT_PACKAGES += \
