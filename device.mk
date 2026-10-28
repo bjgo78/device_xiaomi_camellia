@@ -265,12 +265,20 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml
 
 # Power
-PRODUCT_PACKAGES += \
-    android.hardware.power-service-mediatek \
-    android.hardware.power@1.3.vendor
+$(call soong_config_set,power_libperfmgr,mode_extension_lib,//$(LOCAL_PATH):libperfmgr-ext-camellia)
 
 PRODUCT_PACKAGES += \
+    android.hardware.power-service.lineage-libperfmgr \
+    android.hardware.power@1.3.vendor \
+    vendor.mediatek.hardware.mtkpower@1.2-service.stub \
     vendor.mediatek.hardware.mtkpower@1.2.vendor
+
+PRODUCT_PACKAGES += \
+    libmtkperf_client_vendor \
+    libpowerhalwrap_vendor
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 # Power Off Alarm
 PRODUCT_PACKAGES += \
@@ -306,6 +314,7 @@ PRODUCT_PACKAGES += \
     fstab.mt6833.ramdisk \
     init.connectivity.rc \
     init.modem.rc \
+    init.mt6833.power.rc \
     init.mt6833.rc \
     init.mt6833.usb.rc \
     init.project.rc \
@@ -351,7 +360,9 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/google/interfaces \
     hardware/google/pixel \
+    hardware/lineage/interfaces/power-libperfmgr \
     hardware/mediatek \
+    hardware/mediatek/libmtkperf_client \
     hardware/xiaomi
 
 # Thermal

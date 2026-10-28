@@ -20,24 +20,13 @@ from extract_utils.main import (
 namespace_imports = [
     'device/xiaomi/camellia',
     'hardware/mediatek',
+    'hardware/mediatek/libmtkperf_client',
     'hardware/xiaomi',
 ]
 
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
 }
-
-
-def mtkpower_alloc_fixup(ctx, file, file_path, *args, **kwargs):
-    # Allocate 256 bytes instead of 80 for the AIDL Power object
-    # (the LineageOS Power class is larger): mov w0, #80 -> mov w0, #256
-    with open(file_path, 'rb') as f:
-        data = f.read()
-    old = bytes.fromhex('000a8052')
-    new = bytes.fromhex('00208052')
-    assert data.count(old) <= 1, 'mtkpower: allocation pattern not unique'
-    with open(file_path, 'wb') as f:
-        f.write(data.replace(old, new))
 
 
 blob_fixups: blob_fixups_user_type = {
@@ -62,9 +51,6 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/bin/hw/mtkfusionrild': blob_fixup()
         .patchelf_version('0_18')
         .add_needed('libutils-v32.so'),
-    'vendor/bin/hw/vendor.mediatek.hardware.mtkpower@1.0-service': blob_fixup()
-        .replace_needed('android.hardware.power-V2-ndk_platform.so', 'android.hardware.power-V2-ndk.so')
-        .call(mtkpower_alloc_fixup),
     ('vendor/bin/mnld',
      'vendor/lib/libaalservice.so',
      'vendor/lib64/libaalservice.so',
@@ -72,8 +58,6 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libshim_sensors.so'),
     'vendor/etc/init/android.hardware.neuralnetworks@1.3-service-mtk-neuron.rc': blob_fixup()
         .regex_replace('start', 'enable'),
-    'vendor/etc/init/vendor.mediatek.hardware.mtkpower@1.0-service.rc': blob_fixup()
-        .regex_replace(r'(audio)\n?$', r'\1 input\n'),
     'vendor/etc/vintf/manifest/manifest_media_c2_V1_2_default.xml': blob_fixup()
         .regex_replace('1.1', '1.2'),
     ('vendor/lib/hw/vendor.mediatek.hardware.pq@2.13-impl.so',

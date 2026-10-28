@@ -1,0 +1,11 @@
+# Power settings for the libperfmgr power HAL. The stock mtkpower service
+# used to apply these from powercontable.xml.
+
+on property:sys.boot_completed=1
+    # Default GED DVFS parameters (stock powercontable.xml)
+    write /sys/kernel/ged/hal/dvfs_margin_value 130
+    write /sys/kernel/ged/hal/timer_base_dvfs_margin 798
+    write /sys/kernel/ged/hal/loading_base_dvfs_step 4
+
+    # Enable PowerHAL hint processing
+    setprop vendor.powerhal.init 1

@@ -19,6 +19,13 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
+    name: "init.mt6833.power.rc",
+    src: "etc/init.mt6833.power.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
     name: "init.mt6833.rc",
     src: "etc/init.mt6833.rc",
     sub_dir: "init/hw",
