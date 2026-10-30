@@ -1,0 +1,39 @@
+diff --git a/frameworks/common/Android.bp b/frameworks/common/Android.bp
+index 698e7ed..e2b6323 100644
+--- a/frameworks/common/Android.bp
++++ b/frameworks/common/Android.bp
+@@ -7,6 +7,8 @@
+ java_library {
+     name: "mediatek-common",
+     installable: true,
++    // camellia ships these jars as prebuilts in vendor/xiaomi/camellia
++    enabled: false,
+     system_ext_specific: true,
+     use_generic_config: true,
+ 
+diff --git a/frameworks/telecom-common/Android.bp b/frameworks/telecom-common/Android.bp
+index 9251b6c..bc5376c 100644
+--- a/frameworks/telecom-common/Android.bp
++++ b/frameworks/telecom-common/Android.bp
+@@ -7,6 +7,8 @@
+ java_library {
+     name: "mediatek-telecom-common",
+     installable: true,
++    // camellia ships these jars as prebuilts in vendor/xiaomi/camellia
++    enabled: false,
+     system_ext_specific: true,
+     use_generic_config: true,
+ 
+diff --git a/frameworks/telephony-common/Android.bp b/frameworks/telephony-common/Android.bp
+index dfc125e..292f94d 100644
+--- a/frameworks/telephony-common/Android.bp
++++ b/frameworks/telephony-common/Android.bp
+@@ -7,6 +7,8 @@
+ java_library {
+     name: "mediatek-telephony-common",
+     installable: true,
++    // camellia ships these jars as prebuilts in vendor/xiaomi/camellia
++    enabled: false,
+     system_ext_specific: true,
+     use_generic_config: true,
+ 
