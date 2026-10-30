@@ -1,0 +1,70 @@
+diff --git a/frameworks/common/Android.bp b/frameworks/common/Android.bp
+deleted file mode 100644
+index 698e7ed..0000000
+--- a/frameworks/common/Android.bp
++++ /dev/null
+@@ -1,16 +0,0 @@
+-//
+-// Copyright (C) 2026 The LineageOS Project
+-//
+-// SPDX-License-Identifier: Apache-2.0
+-//
+-
+-java_library {
+-    name: "mediatek-common",
+-    installable: true,
+-    system_ext_specific: true,
+-    use_generic_config: true,
+-
+-    srcs: [
+-        "src/**/*.java",
+-    ],
+-}
+diff --git a/frameworks/telecom-common/Android.bp b/frameworks/telecom-common/Android.bp
+deleted file mode 100644
+index 9251b6c..0000000
+--- a/frameworks/telecom-common/Android.bp
++++ /dev/null
+@@ -1,16 +0,0 @@
+-//
+-// Copyright (C) 2026 The LineageOS Project
+-//
+-// SPDX-License-Identifier: Apache-2.0
+-//
+-
+-java_library {
+-    name: "mediatek-telecom-common",
+-    installable: true,
+-    system_ext_specific: true,
+-    use_generic_config: true,
+-
+-    srcs: [
+-        "src/**/*.java",
+-    ],
+-}
+diff --git a/frameworks/telephony-common/Android.bp b/frameworks/telephony-common/Android.bp
+deleted file mode 100644
+index dfc125e..0000000
+--- a/frameworks/telephony-common/Android.bp
++++ /dev/null
+@@ -1,20 +0,0 @@
+-//
+-// Copyright (C) 2026 The LineageOS Project
+-//
+-// SPDX-License-Identifier: Apache-2.0
+-//
+-
+-java_library {
+-    name: "mediatek-telephony-common",
+-    installable: true,
+-    system_ext_specific: true,
+-    use_generic_config: true,
+-
+-    srcs: [
+-        "src/**/*.java",
+-    ],
+-
+-    libs: [
+-        "telephony-common",
+-    ],
+-}
