@@ -95,12 +95,6 @@ on fs
 on late-fs
     wait_for_prop hwservicemanager.ready "true"
 
-    # Keymaster (early_hal) cannot initialize before the TEE is up, and
-    # mount_all --late blocks init on vold -> keystore2 -> keymaster, so a
-    # failed first start is never retried. Start it once soter is ready.
-    wait_for_prop vendor.soter.teei.init INIT_OK
-    restart vendor.keymaster-4-1-beanpod
-
     mount_all --late
 
 on post-fs
