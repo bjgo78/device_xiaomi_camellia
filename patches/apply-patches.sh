@@ -3,7 +3,7 @@
 #   bash device/xiaomi/camellia/patches/apply-patches.sh
 set -e
 P=device/xiaomi/camellia/patches
-for repo in hardware/mediatek hardware/st/nfc; do
+for repo in frameworks/base hardware/mediatek hardware/st/nfc; do
   for patch in "$P/$repo"/*.patch; do
     if git -C "$repo" apply --reverse --check "$PWD/$patch" 2>/dev/null; then
       echo "already applied: $patch"
