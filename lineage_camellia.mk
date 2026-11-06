@@ -20,6 +20,7 @@ TARGET_SUPPORTS_QUICK_TAP := true
 
 # Evolution X
 PERF_ANIM_OVERRIDE := true
+TARGET_ENABLE_BLUR := true
 
 PRODUCT_NAME := lineage_camellia
 PRODUCT_DEVICE := camellia
