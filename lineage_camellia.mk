@@ -19,7 +19,7 @@ TARGET_USES_lineage_RECOVERY := true
 TARGET_SUPPORTS_QUICK_TAP := true
 
 # Evolution X
-TARGET_ENABLE_BLUR := false
+PERF_ANIM_OVERRIDE := true
 
 PRODUCT_NAME := lineage_camellia
 PRODUCT_DEVICE := camellia
