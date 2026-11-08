@@ -4,6 +4,7 @@ import /vendor/etc/init/hw/init.project.rc
 import /vendor/etc/init/hw/init.sensor_2_0.rc
 import /vendor/etc/init/hw/init.stnfc.rc
 import /vendor/etc/init/hw/init.modem.rc
+import /vendor/etc/init/hw/init.mt6833.power.rc
 
 on early-init
     # boot perf. tune
