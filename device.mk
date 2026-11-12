@@ -299,7 +299,6 @@ PRODUCT_BOOT_JARS += \
     mediatek-ims-common \
     mediatek-telecom-common \
     mediatek-telephony-base \
-    mediatek-telephony-common \
     camellia-ims-shim
 
 PRODUCT_PACKAGES += \
