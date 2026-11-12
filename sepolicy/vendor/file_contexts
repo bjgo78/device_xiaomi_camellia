@@ -4,7 +4,6 @@
 /vendor/lib(64)?/lib_sr_models\.so                                                                   u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libalCFR\.so                                                                        u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libapu_mdw\.so                                                                      u:object_r:same_process_hal_file:s0
-/vendor/lib(64)?/libapusys\.so                                                                       u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libarcsoft_beautyshot\.so                                                           u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libarcsoft_dualcam_refocus\.so                                                      u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libarcsoft_fbpre\.so                                                                u:object_r:same_process_hal_file:s0
