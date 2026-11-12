@@ -9,6 +9,11 @@ DEVICE_PATH := device/xiaomi/camellia
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
+# Dexpreopt
+# Stock jar, no longer on the boot classpath (see device.mk) and loaded by
+# nothing; its classes don't verify against LineageOS telephony.
+DEXPREOPT_DISABLED_MODULES += mediatek-telephony-common
+
 # A/B
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS := \
