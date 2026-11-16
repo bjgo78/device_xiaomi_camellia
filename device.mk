@@ -352,6 +352,8 @@ PRODUCT_COPY_FILES += \
 
 # ION
 $(call soong_config_set_bool,libion,legacy_impl,true)
+PRODUCT_PACKAGES += \
+    libion.vendor
 
 # Kernel
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
@@ -365,6 +367,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/google/pixel/power-libperfmgr \
+    hardware/google/pixel/pixelstats \
     hardware/lineage/interfaces/power-libperfmgr \
     hardware/mediatek \
     hardware/mediatek/libmtkperf_client \
