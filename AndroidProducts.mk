@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_camellia.mk
+    $(LOCAL_DIR)/custom_camellia.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_camellia-user \
-    lineage_camellia-userdebug \
-    lineage_camellia-eng
+    custom_camellia-user \
+    custom_camellia-userdebug \
+    custom_camellia-eng
