@@ -1,0 +1,40 @@
+From 4091bc3e26ce0f98f8efb777bfe59b758de2845a Mon Sep 17 00:00:00 2001
+From: bjgo78 <bjgo78@gmail.com>
+Date: Tue, 24 Nov 2026 10:43:18 +0000
+Subject: [PATCH] arm64: Drop libjni_latinimegoogle
+
+VoltageOS's packages/inputmethods/LatinIME already ships
+libjni_latinimegoogle as a Make module, so this Soong prebuilt
+collides with it when Make modules are loaded:
+
+  vendor/gapps/arm64: MODULE.TARGET.SHARED_LIBRARIES.
+  libjni_latinimegoogle already defined by
+  packages/inputmethods/LatinIME/java
+
+Drop the prebuilt. arm64-vendor.mk still lists libjni_latinimegoogle in
+PRODUCT_PACKAGES, which now installs VoltageOS's copy.
+---
+ arm64/Android.bp | 7 -------
+ 1 file changed, 7 deletions(-)
+
+diff --git a/arm64/Android.bp b/arm64/Android.bp
+index 589cf58..e8c2da5 100644
+--- a/arm64/Android.bp
++++ b/arm64/Android.bp
+@@ -116,13 +116,6 @@ android_app_import {
+     product_specific: true,
+ }
+ 
+-cc_prebuilt_library_shared {
+-    name: "libjni_latinimegoogle",
+-    srcs: ["proprietary/product/lib64/libjni_latinimegoogle.so"],
+-    prefer: true,
+-    product_specific: true,
+-}
+-
+ genrule {
+     name: "com.google.android.gmssystem.prodvic.apex-genrule",
+     out: ["com.google.android.gmssystem.prodvic.apex"],
+-- 
+2.43.0
+
