@@ -18,7 +18,7 @@ TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_USES_lineage_RECOVERY := true
 TARGET_SUPPORTS_QUICK_TAP := true
 
-PRODUCT_NAME := lineage_camellia
+PRODUCT_NAME := infinity_camellia
 PRODUCT_DEVICE := camellia
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Redmi
