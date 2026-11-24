@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_camellia.mk
+    $(LOCAL_DIR)/voltage_camellia.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_camellia-user \
-    lineage_camellia-userdebug \
-    lineage_camellia-eng
+    voltage_camellia-user \
+    voltage_camellia-userdebug \
+    voltage_camellia-eng
