@@ -3,7 +3,7 @@
 #   bash device/xiaomi/camellia/patches/apply-patches.sh
 set -e
 P=device/xiaomi/camellia/patches
-for repo in device/mediatek/sepolicy_vndr frameworks/base hardware/mediatek hardware/st/nfc; do
+for repo in device/mediatek/sepolicy_vndr frameworks/base hardware/mediatek hardware/st/nfc hardware/xiaomi; do
   for patch in "$P/$repo"/*.patch; do
     files=$(git -C "$repo" apply --numstat "$PWD/$patch" | cut -f3)
     # The synced repos are clean, so untouched files mean the patch is not applied yet.
