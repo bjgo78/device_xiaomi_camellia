@@ -11,7 +11,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from device makefile.
 $(call inherit-product, device/xiaomi/camellia/device.mk)
 
-# Inherit some common LineageOS stuff.
+# Ship Mist OS's full GMS package. Must be set before the inherit below:
+# vendor/lineage/config/version.mk defaults it to false when it is read.
+WITH_GMS := true
+
+# Inherit some common Mist OS stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 TARGET_BOOT_ANIMATION_RES := 1080
