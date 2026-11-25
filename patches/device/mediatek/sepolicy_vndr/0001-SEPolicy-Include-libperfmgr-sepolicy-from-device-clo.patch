@@ -1,0 +1,29 @@
+From 11ae7d2453612ec4f9befd3faa625772ef668d9e Mon Sep 17 00:00:00 2001
+From: bjgo78 <bjgo78@gmail.com>
+Date: Wed, 25 Nov 2026 09:10:10 +0000
+Subject: [PATCH] SEPolicy: Include libperfmgr sepolicy from device/clover
+
+Clover carries LineageOS's device/lineage/sepolicy as
+device/clover/sepolicy, so device/lineage/sepolicy/libperfmgr/
+sepolicy.mk does not exist there and board config fails on the missing
+include. Include the same file from device/clover/sepolicy.
+---
+ SEPolicy.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/SEPolicy.mk b/SEPolicy.mk
+index f57bfc1..99be480 100644
+--- a/SEPolicy.mk
++++ b/SEPolicy.mk
+@@ -2,7 +2,7 @@
+ MTK_SEPOLICY_PATH := device/mediatek/sepolicy_vndr
+ TRUSTY_DEVICE_PATH := device/generic/trusty
+ 
+-include device/lineage/sepolicy/libperfmgr/sepolicy.mk
++include device/clover/sepolicy/libperfmgr/sepolicy.mk
+ 
+ BOARD_VENDOR_SEPOLICY_DIRS += $(MTK_SEPOLICY_PATH)/base/vendor
+ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(MTK_SEPOLICY_PATH)/base/private
+-- 
+2.43.0
+
