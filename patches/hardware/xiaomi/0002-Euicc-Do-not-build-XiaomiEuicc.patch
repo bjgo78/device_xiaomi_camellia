@@ -1,0 +1,44 @@
+From 74461c42c6ff7e3410ca7085882e75a9391ae95d Mon Sep 17 00:00:00 2001
+From: bjgo78 <bjgo78@gmail.com>
+Date: Wed, 25 Nov 2026 16:17:49 +0000
+Subject: [PATCH] Euicc: Do not build XiaomiEuicc
+
+XiaomiEuicc requires EuiccPolicy, which Clover does not have, so the
+Make module check fails:
+
+  TARGET module XiaomiEuicc requires non-existent TARGET module:
+  EuiccPolicy
+
+camellia does not ship this package, so drop its build file.
+---
+ packages/Euicc/Android.bp | 18 ------------------
+ 1 file changed, 18 deletions(-)
+ delete mode 100644 packages/Euicc/Android.bp
+
+diff --git a/packages/Euicc/Android.bp b/packages/Euicc/Android.bp
+deleted file mode 100644
+index 680cb93..0000000
+--- a/packages/Euicc/Android.bp
++++ /dev/null
+@@ -1,18 +0,0 @@
+-
+-//
+-// SPDX-FileCopyrightText: The LineageOS Project
+-// SPDX-License-Identifier: Apache-2.0
+-//
+-
+-phony {
+-    name: "XiaomiEuicc",
+-    required: [
+-        "EuiccPolicy",
+-        "EuiccPolicyXiaomi",
+-    ],
+-}
+-
+-runtime_resource_overlay {
+-    name: "EuiccPolicyXiaomi",
+-    product_specific: true,
+-}
+-- 
+2.43.0
+
